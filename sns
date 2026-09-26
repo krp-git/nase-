@@ -1,0 +1,33 @@
+class GrandFather:
+    def __init__(self, surename):
+        self.surename = surename
+
+    def print_full_name(self):
+        print(f"дідусь: {self.surename}")
+
+
+class Father(GrandFather):
+    def __init__(self, surename, first_name):
+        GrandFather.__init__(self, surename)
+        self.first_name = first_name
+
+    def print_full_name(self):
+        print(f"батько: {self.surename} {self.first_name}")
+
+
+class Son(Father):
+    def __init__(self, surename, first_name, sesrname):
+        Father.__init__(self, surename, first_name)
+        self.sesrname = sesrname
+
+    def print_full_name(self):
+        print(f"син: {self.surename} {self.first_name} {self.sesrname}")
+
+
+grandfather = GrandFather("Петренко")
+father = Father("Петренко", "Іван")
+son = Son("Петренко", "Іван", "Іванович")
+
+grandfather.print_full_name()
+father.print_full_name()
+son.print_full_name()
